@@ -9,8 +9,12 @@ function Home(){
 
     return (
         <div  >
-            <div className=" bg-red-500 dark:bg-blue-600">
+            <div className="">
                 <h1>{t("welcome")}</h1>
+                <select>
+                    <option>test</option>
+                    <option>test2</option>
+                </select>
 
 
             </div>

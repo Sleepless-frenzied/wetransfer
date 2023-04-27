@@ -13,6 +13,7 @@ module.exports = {
         'dark':'#313338',
         'darkButton':'#4e5058',
         'darkModule':'#2b2d31',
+        'darkDivi':'#6f367c'
 
 
 

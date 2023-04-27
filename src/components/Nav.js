@@ -14,6 +14,7 @@ const Nav = () => {
         {name: t("service"),link:"/service"},
         {name:t("about"),link:"/about"},
         {name:t("contact"),link:"/contact"},
+        {name:t("Dropdown"),link:"/Dropdown"},
     ];
     let [open,setOpen]=useState(false);
 

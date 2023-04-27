@@ -16,8 +16,7 @@ const handleTrans = () => {
 
 const Button = (props) => {
     return (
-        <button onClick={handleTrans} className=' text-white font-[Poppins] py-2 px-6 rounded
-    duration-500'>
+        <button onClick={handleTrans} className=' text-white font-[Poppins] py-2 px-6 rounded duration-500'>
             {props.children}
             <img src={flag} alt="change language"
                  className="w-10 h-10 p-0 m-0  rounded-full ring-blue-500 ring-4"/>
