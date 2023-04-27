@@ -9,7 +9,7 @@ function Home(){
 
     return (
         <div >
-            <div>
+            <div className="dark:br-dark">
                 <h1>{t("welcome")}</h1>
 
 
