@@ -11,12 +11,15 @@ import Nav from "./components/Nav"
 
 function App() {
   return (
+      <body class="dark bg-light dark:bg-dark text-white h-screen">
       <div className="App">
           <Nav />
           <Routes >
               <Route path="/" element={<Home/>} />
           </Routes>
       </div>
+      </body>
+
   );
 }
 
