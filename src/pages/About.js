@@ -6,15 +6,39 @@ import {useNavigate} from 'react-router-dom';
 
 function About(){
 
-    const options = [
-        { label: "dsf" },
-        { label: "blablablabla" }
+    const optionsThick = [
+        { label: "Aboveground" },
+        { label: "Semi-Buried" },
+        { label: "Buried" },
+    ];
+    const optionsTemp = [
+        { label: "12 C°" },
+        { label: "13 C°" },
+        { label: "14 C°" },
+        { label: "15 C°" },
+        { label: "16 C°" },
+    ];
+    const optionsFloor = [
+        { label: "Expanded polystyrene" },
+        { label: "Extruded polystyrene" },
+        { label: "Polyurethane" },
+        { label: "Concrete only" },
+        { label: "Brick only" },
+        { label: "Clay" },
+    ];
+    const optionsCeiling = [
+        { label: "Expanded polystyrene" },
+        { label: "Extruded polystyrene" },
+        { label: "Polyurethane" },
+        { label: "Concrete only" },
+        { label: "Brick only" },
+        { label: "Clay" },
     ];
     function Dropdown({ name, text, options, CN, value, handleChange }) {
         return (
             <div className={CN}>
                 <div className={" grid grid-rows border-2 dark:border-darkDivi"}>
-                    <div className="flex flex-wrap divide-x-2 divide-darkDivi ">
+                    <div className="flex flex-wrap divide-x-2 dark:divide-darkDivi ">
                         <p className=" w-1/3 py-1.5">{text}</p>
                         <select
                             className=" w-2/3 text-black"
@@ -40,7 +64,8 @@ function About(){
 
     const [details, setDetails] = useState({
         name: "",
-        Thickness: "dsf"
+        Thickness: "Aboveground",
+        Temp:"12 C°"
     });
 
     const handleChange = (e) => {
@@ -73,15 +98,36 @@ function About(){
 
             <form onSubmit={handleSubmit}>
 
+                <br/>
 
-                <Dropdown
-                    name={"Thickness"}
-                    options={options}
-                    value={details.Thickness}
-                    text={"Thickness"}
-                    CN={"w-1/3"}
-                    handleChange={handleChange}
-                />
+                <div className={"bg-blue-300 w-1/3"}>
+                    <div className=" grid gird-cols mx-2 my-2 ">
+
+                        <Dropdown
+                            name={"Thickness"}
+                            options={optionsThick}
+                            value={details.Thickness}
+                            text={"Thickness"}
+                            CN={""}
+                            handleChange={handleChange}
+                        />
+                        <br/>
+                        <Dropdown
+                            name={"Temp"}
+                            options={optionsTemp}
+                            value={details.Temp}
+                            text={"Temp"}
+                            CN={""}
+                            handleChange={handleChange}
+                        />
+
+                        <div className={""}>
+                            Your floor settings
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+
 
                 <label>
                     Enter your name:
