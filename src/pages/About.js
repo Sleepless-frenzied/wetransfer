@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import { useTranslation } from 'react-i18next';
+//import { useTranslation } from 'react-i18next';
 import {useNavigate} from 'react-router-dom';
 
 
 
 function About(){
 
-    const optionsThick = [
+    const optionsCellar = [
         { label: "Aboveground" },
         { label: "Semi-Buried" },
         { label: "Buried" },
@@ -34,6 +34,7 @@ function About(){
         { label: "Brick only" },
         { label: "Clay" },
     ];
+    
     function Dropdown({ name, text, options, CN, value, handleChange }) {
         return (
             <div className={CN}>
@@ -64,8 +65,12 @@ function About(){
 
     const [details, setDetails] = useState({
         name: "",
-        Thickness: "Aboveground",
-        Temp:"12 C°"
+        Cellar: "Aboveground",
+        Temp:"12 C°",
+        FloorMaterial:"Poly",
+        FloorThick:"1",
+        CeilingMaterial:"1"
+
     });
 
     const handleChange = (e) => {
@@ -104,10 +109,10 @@ function About(){
                     <div className=" grid gird-cols mx-2 my-2 ">
 
                         <Dropdown
-                            name={"Thickness"}
-                            options={optionsThick}
-                            value={details.Thickness}
-                            text={"Thickness"}
+                            name={"Cellar"}
+                            options={optionsCellar}
+                            value={details.Cellar}
+                            text={"Your cellar is"}
                             CN={""}
                             handleChange={handleChange}
                         />
@@ -121,9 +126,30 @@ function About(){
                             handleChange={handleChange}
                         />
 
-                        <div className={""}>
-                            Your floor settings
-                            <hr/>
+                        <h3 className={""}>Your floor settings</h3>
+                        <hr className={"my-2.5"}/>
+                        <Dropdown
+                            name={"FloorMaterial"}
+                            options={optionsFloor}
+                            value={details.FloorMaterial}
+                            text={"Material"}
+                            CN={""}
+                            handleChange={handleChange}
+                        />
+
+                        {/*TODO Problem here with input*/}
+                        <div className={"my-1.5 text-black "}>
+                            <label className={"divide-y-2 divide-x-2 divide-darkDivi"}>
+                                Thickness:
+                                <input
+                                    className={" w-2/3 lg:w-full"}
+                                    type="number"
+                                    name="FloorThick"
+                                    value={details.FloorThick}
+                                    onChange={handleChange}
+                                />
+                                cm
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -139,16 +165,7 @@ function About(){
                         onChange={handleChange}
                     />
                 </label>
-                <label>
-                    Enter your test:
-                    <input
-                        className={"text-black"}
-                        type="text"
-                        name="test"
-                        value={details.test}
-                        onChange={handleChange}
-                    />
-                </label>
+
                 <button
                     type="submit"
                     disabled={!isEnabled}

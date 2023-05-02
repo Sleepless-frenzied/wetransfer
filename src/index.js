@@ -18,7 +18,7 @@ const loadingMarkup = (
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Suspense fallback={loadingMarkup}>
-        <Router>
+        <Router basename={'/products/eurocave/'}>
             <App />
         </Router>
     </Suspense>,

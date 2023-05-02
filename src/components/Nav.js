@@ -40,7 +40,7 @@ const Nav = () => {
                     {
                         Links.map((link)=>(
                             <li key={link.name} className='md:ml-6 text-xl md:my-0 my-7'>
-                                <a href={link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{link.name.toUpperCase()}</a>
+                                <Link to={link.link}  className='text-gray-800 hover:text-gray-400 duration-500'>{link.name.toUpperCase()}</Link>
                             </li>
                         ))
                     }
