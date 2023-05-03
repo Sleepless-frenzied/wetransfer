@@ -14,7 +14,6 @@ const Nav = () => {
         {name: t("service"),link:"/service"},
         {name:t("about"),link:"/about"},
         {name:t("contact"),link:"/contact"},
-        {name:t("Dropdown"),link:"/Dropdown"},
     ];
     let [open,setOpen]=useState(false);
 
@@ -27,7 +26,7 @@ const Nav = () => {
                     <span className='text-3xl text-indigo-600 mr-1 pt-2'>
                         <ion-icon name="logo-ionic"></ion-icon>
                     </span>
-                    <Link to={'/'}>Wetransfer</Link>
+                    <Link to={'/'}>Eurocave</Link>
 
                 </div>
 

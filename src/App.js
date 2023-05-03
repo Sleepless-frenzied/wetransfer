@@ -16,7 +16,6 @@ function App() {
   return (
       <div className="App bg-light dark:bg-dark text-white h-screen">
           <Nav />
-          test
           <Routes  >
               <Route path="/" element={<Home/>} />
               <Route path="/About" element={<About/>} />

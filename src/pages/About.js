@@ -44,7 +44,7 @@ function About(){
                         <select
                             className=" w-2/3 text-black"
                             placeholder={"test"}
-                            aria-placeholder={"fdsa"}
+
                             name={name}
                             value={value}
                             onChange={handleChange}
@@ -67,9 +67,12 @@ function About(){
         name: "",
         Cellar: "Aboveground",
         Temp:"12 C°",
-        FloorMaterial:"Poly",
+
+        FloorMaterial:"Polyurethane",
         FloorThick:"1",
-        CeilingMaterial:"1"
+
+        CeilingMaterial:"Polyurethane",
+        CeilingThick:"1",
 
     });
 
@@ -107,6 +110,7 @@ function About(){
 
                 <div className={"bg-blue-300 w-1/3"}>
                     <div className=" grid gird-cols mx-2 my-2 ">
+                        <span className={"h-2.5"}></span>
 
                         <Dropdown
                             name={"Cellar"}
@@ -126,31 +130,65 @@ function About(){
                             handleChange={handleChange}
                         />
 
-                        <h3 className={""}>Your floor settings</h3>
-                        <hr className={"my-2.5"}/>
-                        <Dropdown
-                            name={"FloorMaterial"}
-                            options={optionsFloor}
-                            value={details.FloorMaterial}
-                            text={"Material"}
-                            CN={""}
-                            handleChange={handleChange}
-                        />
+                        <div>
+                            <h3 className={""}>Your floor settings</h3>
+                            <hr className={"my-2.5"}/>
+                            <Dropdown
+                                name={"FloorMaterial"}
+                                options={optionsFloor}
+                                value={details.FloorMaterial}
+                                text={"Material"}
+                                CN={""}
+                                handleChange={handleChange}
+                            />
 
-                        {/*TODO Problem here with input*/}
-                        <div className={"my-1.5 text-black "}>
-                            <label className={"divide-y-2 divide-x-2 divide-darkDivi"}>
-                                Thickness:
-                                <input
-                                    className={" w-2/3 lg:w-full"}
-                                    type="number"
-                                    name="FloorThick"
-                                    value={details.FloorThick}
-                                    onChange={handleChange}
-                                />
-                                cm
-                            </label>
+                            {/*TODO Problem here with input*/}
+                            <div className={"my-1.5   text-black "}>
+                                <label className={" grid grid-cols-7 divide-x-2  border-2 border-darkDivi divide-darkDivi"}>
+                                    <a className={" col-span-3"}>Thickness</a>
+                                    <input
+                                        className={"col-span-3 "}
+                                        type="number"
+                                        name="FloorThick"
+                                        value={details.FloorThick}
+                                        onChange={handleChange}
+                                        min="1"
+                                    />
+                                    <a>cm</a>
+                                </label>
+                            </div>
                         </div>
+
+
+                        {/*Your ceiling settings*/}
+                        <div>
+                            <h3 className={""}>Your ceiling settings</h3>
+                            <hr className={"my-2.5"}/>
+                            <Dropdown
+                                name={"CeilingMaterial"}
+                                options={optionsCeiling}
+                                value={details.CeilingMaterial}
+                                text={"Material"}
+                                CN={""}
+                                handleChange={handleChange}
+                            />
+
+                            <div className={"my-1.5   text-black "}>
+                                <label className={" grid grid-cols-7 divide-x-2  border-2 border-darkDivi divide-darkDivi"}>
+                                    <a className={" col-span-3"}>Thickness</a>
+                                    <input
+                                        className={"col-span-3 "}
+                                        type="number"
+                                        name="CeilingThick"
+                                        value={details.CeilingThick}
+                                        onChange={handleChange}
+                                        min="1"
+                                    />
+                                    <a>cm</a>
+                                </label>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
