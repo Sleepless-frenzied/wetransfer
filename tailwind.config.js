@@ -1,19 +1,29 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 
+  darkMode: 'class',
 
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
       colors:{
-        'light': '#d3d3d3',
+        'light': '#f7f9fb',
+        'lightNav':"#fdfdfe",
+        'lightTxt':'#000000',
+        'lightButton':'#fdfdfe',
+        'lightModule':'#fdfdfe',
+        'lightDivi':'#000000',
+        'lightHR':'#413b3b',
 
 
 
-        'dark':'#313338',
-        'darkButton':'#4e5058',
-        'darkModule':'#2b2d31',
-        'darkDivi':'#6f367c'
+        'dark':'#282a2e',
+        'darkNav':"#070707",
+        'darkTxt':'#ffffff',
+        'darkButton':'#0048ff',
+        'darkModule':'#313338',
+        'darkDivi':'#398bff',
+        'darkHR':'#1677ff'
 
 
 

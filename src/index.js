@@ -11,14 +11,15 @@ import './i18n'
 
 const loadingMarkup = (
     <div className="py-4 text-center">
-        <h3>Loading..</h3>
+        <h3>Loading...</h3>
     </div>
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Suspense fallback={loadingMarkup}>
-        <Router basename={'/products/eurocave/'}>
+
+        <Router basename={'/products/eurocave/'} >
             <App />
         </Router>
     </Suspense>,

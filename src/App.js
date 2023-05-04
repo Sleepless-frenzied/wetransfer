@@ -14,7 +14,7 @@ import Nav from "./components/Nav"
 
 function App() {
   return (
-      <div className="App bg-light dark:bg-dark text-white h-screen">
+      <div className="App bg-light dark:bg-dark text-white h-screen  transition-all duration-500">
           <Nav />
           <Routes  >
               <Route path="/" element={<Home/>} />

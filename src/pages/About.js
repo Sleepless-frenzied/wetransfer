@@ -1,15 +1,15 @@
 import React, {useState} from "react";
-//import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import {useNavigate} from 'react-router-dom';
-
 
 
 function About(){
 
+    const { t} = useTranslation();
     const optionsCellar = [
-        { label: "Aboveground" },
-        { label: "Semi-Buried" },
-        { label: "Buried" },
+        { label: t("aboveground") },
+        { label: t("semi_buried") },
+        { label: t("buried") },
     ];
     const optionsTemp = [
         { label: "12 C°" },
@@ -19,27 +19,27 @@ function About(){
         { label: "16 C°" },
     ];
     const optionsFloor = [
-        { label: "Expanded polystyrene" },
-        { label: "Extruded polystyrene" },
-        { label: "Polyurethane" },
-        { label: "Concrete only" },
-        { label: "Brick only" },
-        { label: "Clay" },
+        { label: t("expanded_polystyrene") },
+        { label: t("extruded_polystyrene") },
+        { label: t("polyurethane") },
+        { label: t("concrete_only") },
+        { label: t("brick_only") },
+        { label: t("clay") },
     ];
     const optionsCeiling = [
-        { label: "Expanded polystyrene" },
-        { label: "Extruded polystyrene" },
-        { label: "Polyurethane" },
-        { label: "Concrete only" },
-        { label: "Brick only" },
-        { label: "Clay" },
+        { label: t("expanded_polystyrene") },
+        { label: t("extruded_polystyrene") },
+        { label: t("polyurethane") },
+        { label: t("concrete_only") },
+        { label: t("brick_only") },
+        { label: t("clay") },
     ];
     
     function Dropdown({ name, text, options, CN, value, handleChange }) {
         return (
             <div className={CN}>
-                <div className={" grid grid-rows border-2 dark:border-darkDivi"}>
-                    <div className="flex flex-wrap divide-x-2 dark:divide-darkDivi ">
+                <div className={"grid grid-rows border-2 dark:border-darkDivi dark:divide-darkDivi border-lightDivi divide-lightDivi"}>
+                    <div className="flex flex-wrap divide-x-2 dark:border-darkDivi dark:divide-darkDivi border-lightDivi divide-lightDivi ">
                         <p className=" w-1/3 py-1.5">{text}</p>
                         <select
                             className=" w-2/3 text-black"
@@ -102,59 +102,59 @@ function About(){
     const isEnabled = Object.values(details).every(Boolean);
 
     return (
+
         <div>
+            <br className={"select-none"}/>
 
             <form onSubmit={handleSubmit}>
-
-                <br/>
-
-                <div className={"bg-blue-300 w-1/3"}>
-                    <div className=" grid gird-cols mx-2 my-2 ">
+                <div className={"shadow-xl dark:bg-darkModule bg-lightModule text-black dark:text-darkTxt  w-1/3"}>
+                    <div className=" grid gird-cols mx-2 my-2  ">
                         <span className={"h-2.5"}></span>
+
 
                         <Dropdown
                             name={"Cellar"}
                             options={optionsCellar}
                             value={details.Cellar}
-                            text={"Your cellar is"}
+                            text={t("your_cellar_is")}
                             CN={""}
                             handleChange={handleChange}
                         />
-                        <br/>
+                        <span className={"h-3"}></span>
                         <Dropdown
                             name={"Temp"}
                             options={optionsTemp}
                             value={details.Temp}
-                            text={"Temp"}
+                            text={t("desired_temperature")}
                             CN={""}
                             handleChange={handleChange}
                         />
 
                         <div>
-                            <h3 className={""}>Your floor settings</h3>
-                            <hr className={"my-2.5"}/>
+                            <h3 className={""}>{t("your_floor_settings")}</h3>
+                            <hr className={"dark:border-darkHR border-lightHR my-2.5"}/>
                             <Dropdown
                                 name={"FloorMaterial"}
                                 options={optionsFloor}
                                 value={details.FloorMaterial}
-                                text={"Material"}
+                                text={t("material")}
                                 CN={""}
                                 handleChange={handleChange}
                             />
 
                             {/*TODO Problem here with input*/}
-                            <div className={"my-1.5   text-black "}>
-                                <label className={" grid grid-cols-7 divide-x-2  border-2 border-darkDivi divide-darkDivi"}>
-                                    <a className={" col-span-3"}>Thickness</a>
+                            <div className={"my-1.5 "}>
+                                <label className={" grid grid-cols-7 divide-x-2  border-2 dark:border-darkDivi dark:divide-darkDivi border-lightDivi divide-lightDivi"}>
+                                    <p className={" col-span-3"}>{t("thickness")}</p>
                                     <input
-                                        className={"col-span-3 "}
+                                        className={"col-span-3 text-black"}
                                         type="number"
                                         name="FloorThick"
                                         value={details.FloorThick}
                                         onChange={handleChange}
                                         min="1"
                                     />
-                                    <a>cm</a>
+                                    <p>cm</p>
                                 </label>
                             </div>
                         </div>
@@ -162,35 +162,38 @@ function About(){
 
                         {/*Your ceiling settings*/}
                         <div>
-                            <h3 className={""}>Your ceiling settings</h3>
-                            <hr className={"my-2.5"}/>
+                            <h3 className={""}>{t("your_ceiling_settings")}</h3>
+                            <hr className={"dark:border-darkHR border-lightHR my-2.5"}/>
                             <Dropdown
                                 name={"CeilingMaterial"}
                                 options={optionsCeiling}
                                 value={details.CeilingMaterial}
-                                text={"Material"}
+                                text={t("material")}
                                 CN={""}
                                 handleChange={handleChange}
                             />
 
-                            <div className={"my-1.5   text-black "}>
-                                <label className={" grid grid-cols-7 divide-x-2  border-2 border-darkDivi divide-darkDivi"}>
-                                    <a className={" col-span-3"}>Thickness</a>
+                            <div className={"my-1.5    "}>
+                                <label className={" grid grid-cols-7 divide-x-2  border-2 dark:border-darkDivi dark:divide-darkDivi border-lightDivi divide-lightDivi"}>
+                                    <p className={" col-span-3"}>{t("thickness")}</p>
                                     <input
-                                        className={"col-span-3 "}
+                                        className={"col-span-3 text-black"}
                                         type="number"
                                         name="CeilingThick"
                                         value={details.CeilingThick}
                                         onChange={handleChange}
                                         min="1"
                                     />
-                                    <a>cm</a>
+                                    <p>cm</p>
                                 </label>
                             </div>
                         </div>
 
                     </div>
                 </div>
+
+
+
 
 
                 <label>
@@ -201,16 +204,17 @@ function About(){
                         name="name"
                         value={details.name}
                         onChange={handleChange}
+                        autocomplete="off"
                     />
                 </label>
 
                 <button
                     type="submit"
                     disabled={!isEnabled}
-                    className={"bg-blue-500 disabled:bg-red-600"}
+                    className={"dark:bg-darkButton bg-lightButton p-2.5 disabled:opacity-75"}
                 >
-                    {" "}
-                    sub
+                    {t("define_windows")}
+
                 </button>
             </form>
         </div>

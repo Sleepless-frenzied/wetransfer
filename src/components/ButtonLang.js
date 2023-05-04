@@ -14,7 +14,7 @@ const handleTrans = () => {
     i18n.changeLanguage(lang);
 };
 
-const Button = (props) => {
+const ButtonLang = (props) => {
     return (
         <button onClick={handleTrans} className=' text-white font-[Poppins] py-2 px-6 rounded duration-500'>
             {props.children}
@@ -24,4 +24,4 @@ const Button = (props) => {
     )
 }
 
-export default Button
+export default ButtonLang
