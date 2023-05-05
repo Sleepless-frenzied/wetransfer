@@ -9,6 +9,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import './i18n'
 
+
+
+
+
+
 const loadingMarkup = (
     <div className="py-4 text-center">
         <h3>Loading...</h3>
@@ -19,7 +24,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Suspense fallback={loadingMarkup}>
 
-        <Router basename={'/products/eurocave/'} >
+        <Router  >
+            //basename={'/products/eurocave/'}
             <App />
         </Router>
     </Suspense>,

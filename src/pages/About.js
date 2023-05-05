@@ -39,10 +39,10 @@ function About(){
         return (
             <div className={CN}>
                 <div className={"grid grid-rows border-2 dark:border-darkDivi dark:divide-darkDivi border-lightDivi divide-lightDivi"}>
-                    <div className="flex flex-wrap divide-x-2 dark:border-darkDivi dark:divide-darkDivi border-lightDivi divide-lightDivi ">
-                        <p className=" w-1/3 py-1.5">{text}</p>
+                    <div className="grid grid-cols-9 divide-x-2 dark:border-darkDivi dark:divide-darkDivi border-lightDivi divide-lightDivi ">
+                        <p className=" col-span-5 py-1.5">{text}</p>
                         <select
-                            className=" w-2/3 text-black"
+                            className=" col-span-4 text-black"
                             placeholder={"test"}
 
                             name={name}
@@ -103,11 +103,11 @@ function About(){
 
     return (
 
-        <div>
+        <>
             <br className={"select-none"}/>
 
-            <form onSubmit={handleSubmit}>
-                <div className={"shadow-xl dark:bg-darkModule bg-lightModule text-black dark:text-darkTxt  w-1/3"}>
+            <form onSubmit={handleSubmit} className={"m-6"}>
+                <div className={"shadow-xl dark:bg-darkModule bg-lightModule text-black dark:text-darkTxt  w-full  md:w-1/3 2xl:w-1/5"}>
                     <div className=" grid gird-cols mx-2 my-2  ">
                         <span className={"h-2.5"}></span>
 
@@ -152,9 +152,10 @@ function About(){
                                         name="FloorThick"
                                         value={details.FloorThick}
                                         onChange={handleChange}
-                                        min="1"
+                                        min="10"
+                                        max="1000"
                                     />
-                                    <p>cm</p>
+                                    <p>mm</p>
                                 </label>
                             </div>
                         </div>
@@ -182,9 +183,10 @@ function About(){
                                         name="CeilingThick"
                                         value={details.CeilingThick}
                                         onChange={handleChange}
-                                        min="1"
+                                        min="10"
+                                        max="1000"
                                     />
-                                    <p>cm</p>
+                                    <p>mm</p>
                                 </label>
                             </div>
                         </div>
@@ -208,6 +210,7 @@ function About(){
                     />
                 </label>
 
+
                 <button
                     type="submit"
                     disabled={!isEnabled}
@@ -216,8 +219,11 @@ function About(){
                     {t("define_windows")}
 
                 </button>
+
+
             </form>
-        </div>
+
+        </>
     );
 
 
